@@ -70,4 +70,12 @@ class Movie {
     }
   }
 
+  getBackgroundImg() {
+    if(backdropPath != null ) {
+      return 'https://image.tmdb.org/t/p/w500$backdropPath';
+    } else {
+      return 'https://wpklik.com/wp-content/uploads/2019/03/A-404-Page-Best-Practices-and-Design-Inspiration.jpg';
+    }
+  }
+
 }

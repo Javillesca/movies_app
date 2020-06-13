@@ -26,13 +26,14 @@ class MovieHorizontal extends StatelessWidget {
       child: PageView.builder(
         controller: _pageController,
         itemCount: movies.length,
-        itemBuilder: (context, i) => _cardBuilder(_screenSize.height, context, movies[i])
+        itemBuilder: (context, i) => _card(_screenSize.height, context, movies[i])
       ),
     );
   }
 
-  Widget _cardBuilder(size, BuildContext context, Movie movie) {
-    return Container(
+  Widget _card(size, BuildContext context, Movie movie) {
+
+    final card = Container(
       margin: EdgeInsets.only(right: 15.0),
       child: Column(
         children: <Widget>[
@@ -53,6 +54,12 @@ class MovieHorizontal extends StatelessWidget {
           )
         ],
       ),
+    );
+    return GestureDetector(
+      child: card,
+      onTap: () {
+        Navigator.pushNamed(context, 'detail', arguments: movie);
+      },
     );
   }
 }
